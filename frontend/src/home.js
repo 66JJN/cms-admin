@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { io } from "socket.io-client";
 import "./home.css";
 
@@ -88,7 +88,9 @@ function Home() {
       mode: mode,
     };
     socketRef.current.emit("addSetting", newRecord);
-    alert("บันทึกสำเร็จ...");
+    alert(
+      `บันทึกสำเร็จ\nประเภท: ${mode === "image" ? "รูปภาพ" : "ข้อความ"}\nเวลา: ${hour} ชม. ${minute} นาที ${second} วินาที\nราคา: ${price} บาท`
+    );
   };
 
   // อัปเดต localStorage ทุกครั้งที่สถานะเปลี่ยน
@@ -136,35 +138,69 @@ function Home() {
         >
           CMS ADMIN
         </div>
-        {/* กลาง */}
+        {/* กลาง + ขวา (รวมกันเป็นแถวเดียว) */}
         <div
           style={{
-            flex: 1,
-            textAlign: "center",
-            fontSize: "1.25rem",
-            color: "#222",
-            fontWeight: "500",
-            cursor: "pointer",
-            userSelect: "none",
-            transition: "all 0.15s",
-            display: "inline-block",
-          }}
-          onClick={() => navigate("/time-history")}
-          onMouseOver={e => {
-            e.currentTarget.style.transform = "translateY(-2px) scale(1.04)";
-            e.currentTarget.style.textDecoration = "underline";
-            e.currentTarget.style.textDecorationColor = "#222";
-            e.currentTarget.style.textDecorationThickness = "2px";
-            e.currentTarget.style.textUnderlineOffset = "4px";
-          }}
-          onMouseOut={e => {
-            e.currentTarget.style.transform = "none";
-            e.currentTarget.style.textDecoration = "none";
+            flex: 2,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            gap: 24,
           }}
         >
-          ประวัติการตั้งเวลา
+          {/* ประวัติการตั้งเวลา */}
+          <div
+            style={{
+              fontSize: "1.25rem",
+              color: "#222",
+              fontWeight: "500",
+              cursor: "pointer",
+              userSelect: "none",
+              transition: "all 0.15s",
+              display: "inline-block",
+            }}
+            onClick={() => navigate("/time-history")}
+            onMouseOver={e => {
+              e.currentTarget.style.transform = "translateY(-2px) scale(1.04)";
+              e.currentTarget.style.textDecoration = "underline";
+              e.currentTarget.style.textDecorationColor = "#222";
+              e.currentTarget.style.textDecorationThickness = "2px";
+              e.currentTarget.style.textUnderlineOffset = "4px";
+            }}
+            onMouseOut={e => {
+              e.currentTarget.style.transform = "none";
+              e.currentTarget.style.textDecoration = "none";
+            }}
+          >
+            ประวัติการตั้งเวลา
+          </div>
+          {/* ประวัติการตรวจสอบ */}
+          <div
+            style={{
+              fontSize: "1.25rem",
+              color: "#222",
+              fontWeight: "500",
+              cursor: "pointer",
+              userSelect: "none",
+              transition: "all 0.15s",
+              display: "inline-block",
+            }}
+            onClick={() => navigate("/check-history")}
+            onMouseOver={e => {
+              e.currentTarget.style.transform = "translateY(-2px) scale(1.04)";
+              e.currentTarget.style.textDecoration = "underline";
+              e.currentTarget.style.textDecorationColor = "#222";
+              e.currentTarget.style.textDecorationThickness = "2px";
+              e.currentTarget.style.textUnderlineOffset = "4px";
+            }}
+            onMouseOut={e => {
+              e.currentTarget.style.transform = "none";
+              e.currentTarget.style.textDecoration = "none";
+            }}
+          >
+            ประวัติการตรวจสอบ
+          </div>
         </div>
-        {/* ขวา */}
         <div
           className="status-row-header"
           style={{
@@ -174,6 +210,95 @@ function Home() {
             justifyContent: "flex-end",
           }}
         >
+          {/* เพิ่มปุ่มลิงก์จากโค้ดใหม่ */}
+          <Link to="/stat-slip">
+            <button
+              style={{
+                width: 130,
+                background: "#2563eb",
+                color: "#fff",
+                border: "none",
+                borderRadius: 8,
+                padding: "8px 0",
+                fontWeight: 500,
+                fontSize: "1rem",
+                boxShadow: "0 2px 8px rgba(30,41,59,0.08)",
+                transition: "background 0.2s, box-shadow 0.2s",
+                cursor: "pointer",
+                marginRight: 18
+              }}
+              onMouseOver={e => e.currentTarget.style.background = "#1d4ed8"}
+              onMouseOut={e => e.currentTarget.style.background = "#2563eb"}
+            >
+              Check slip
+            </button>
+          </Link>
+          <Link to="/report">
+            <button
+              style={{
+                width: 130,
+                background: "#64748b",
+                color: "#fff",
+                border: "none",
+                borderRadius: 8,
+                padding: "8px 0",
+                fontWeight: 500,
+                fontSize: "1rem",
+                boxShadow: "0 2px 8px rgba(30,41,59,0.08)",
+                transition: "background 0.2s, box-shadow 0.2s",
+                cursor: "pointer",
+                marginRight: 18
+              }}
+              onMouseOver={e => e.currentTarget.style.background = "#475569"}
+              onMouseOut={e => e.currentTarget.style.background = "#64748b"}
+            >
+              Report
+            </button>
+          </Link>
+          <Link to="/image-queue">
+            <button
+              style={{
+                width: 130,
+                background: "#dc2626",
+                color: "#fff",
+                border: "none",
+                borderRadius: 8,
+                padding: "8px 0",
+                fontWeight: 500,
+                fontSize: "1rem",
+                boxShadow: "0 2px 8px rgba(30,41,59,0.08)",
+                transition: "background 0.2s, box-shadow 0.2s",
+                cursor: "pointer",
+                marginRight: 18
+              }}
+              onMouseOver={e => e.currentTarget.style.background = "#b91c1c"}
+              onMouseOut={e => e.currentTarget.style.background = "#dc2626"}
+            >
+              Image Queue
+            </button>
+          </Link>
+          <Link to="/checklist">
+            <button
+              style={{
+                width: 130,
+                background: "#059669",
+                color: "#fff",
+                border: "none",
+                borderRadius: 8,
+                padding: "8px 0",
+                fontWeight: 500,
+                fontSize: "1rem",
+                boxShadow: "0 2px 8px rgba(30,41,59,0.08)",
+                transition: "background 0.2s, box-shadow 0.2s",
+                cursor: "pointer",
+                marginRight: 32
+              }}
+              onMouseOver={e => e.currentTarget.style.background = "#047857"}
+              onMouseOut={e => e.currentTarget.style.background = "#059669"}
+            >
+              Checklist
+            </button>
+          </Link>
           <span className="status-label" style={{ marginRight: 10 }}>
             สถานะระบบ:
           </span>
@@ -275,13 +400,7 @@ function Home() {
             <span>รูปภาพ:</span>
             <div
               className={`switch-track ${imageOn ? "switch-on" : "switch-off"}`}
-              onClick={() => {
-                if (systemOn) {
-                  const newVal = !imageOn;
-                  setImageOn(newVal);
-                  socketRef.current.emit("updateStatus", { imageOn: newVal });
-                }
-              }}
+              onClick={handleToggleImage}
               style={{
                 cursor: systemOn ? "pointer" : "not-allowed",
                 opacity: systemOn ? 1 : 0.5,
@@ -299,13 +418,7 @@ function Home() {
             <span>ข้อความ:</span>
             <div
               className={`switch-track ${textOn ? "switch-on" : "switch-off"}`}
-              onClick={() => {
-                if (systemOn) {
-                  const newVal = !textOn;
-                  setTextOn(newVal);
-                  socketRef.current.emit("updateStatus", { textOn: newVal });
-                }
-              }}
+              onClick={handleToggleText}
               style={{
                 cursor: systemOn ? "pointer" : "not-allowed",
                 opacity: systemOn ? 1 : 0.5,

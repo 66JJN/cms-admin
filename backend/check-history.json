@@ -1,0 +1,72 @@
+[
+  {
+    "id": "1755983286238",
+    "text": "555",
+    "type": "text",
+    "time": 0,
+    "price": 20,
+    "sender": "Unknown",
+    "textColor": "black",
+    "filePath": null,
+    "status": "approved",
+    "createdAt": "2025-08-23T21:08:06.238Z",
+    "receivedAt": "2025-08-23T21:08:06.238Z",
+    "checkedAt": "2025-08-23T21:09:07.770Z"
+  },
+  {
+    "id": "1755983335609",
+    "text": "777",
+    "type": "image",
+    "time": 0,
+    "price": 10,
+    "sender": "Unknown",
+    "textColor": "black",
+    "filePath": "/uploads/1755983335608.jpg",
+    "status": "approved",
+    "createdAt": "2025-08-23T21:08:55.609Z",
+    "receivedAt": "2025-08-23T21:08:55.609Z",
+    "checkedAt": "2025-08-23T21:09:11.633Z"
+  },
+  {
+    "id": "1755987232396",
+    "text": "666",
+    "type": "text",
+    "time": 0,
+    "price": 10,
+    "sender": "Unknown",
+    "textColor": "black",
+    "filePath": null,
+    "status": "approved",
+    "createdAt": "2025-08-23T22:13:52.396Z",
+    "receivedAt": "2025-08-23T22:13:52.396Z",
+    "checkedAt": "2025-08-23T22:14:42.974Z"
+  },
+  {
+    "id": "1755987272496",
+    "text": "888",
+    "type": "image",
+    "time": 0,
+    "price": 10,
+    "sender": "Unknown",
+    "textColor": "black",
+    "filePath": "/uploads/1755987272495.jpg",
+    "status": "approved",
+    "createdAt": "2025-08-23T22:14:32.496Z",
+    "receivedAt": "2025-08-23T22:14:32.496Z",
+    "checkedAt": "2025-08-23T22:14:45.093Z"
+  },
+  {
+    "id": "1755987305952",
+    "text": "777",
+    "type": "text",
+    "time": 0,
+    "price": 20,
+    "sender": "Unknown",
+    "textColor": "black",
+    "filePath": null,
+    "status": "approved",
+    "createdAt": "2025-08-23T22:15:05.952Z",
+    "receivedAt": "2025-08-23T22:15:05.952Z",
+    "checkedAt": "2025-08-23T22:15:18.399Z"
+  }
+]

@@ -1,8 +1,8 @@
-const express = require("express");
-const http = require("http");
-const { Server } = require("socket.io");
-const cors = require("cors");
-const fs = require("fs");
+import express from "express";
+import http from "http";
+import { Server } from "socket.io";
+import cors from "cors";
+import fs from "fs";
 const SETTINGS_FILE = "./settings.json";
 
 const app = express();
